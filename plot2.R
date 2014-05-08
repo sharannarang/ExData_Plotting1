@@ -7,13 +7,13 @@ power_df <- read.csv2.sql("household_power_consumption.txt",
                           na.strings="?")
 
 ## Merge Date and Time to create a new datetime object
-power_df$DateTime <- strptime(paste(power_df$Date,power_df$Time), format="%d/%m/%Y %H:%M:%S")
+power_df$datetime <- strptime(paste(power_df$Date,power_df$Time), format="%d/%m/%Y %H:%M:%S")
 
 ## Open a PNG graphics device
 png("plot2.png")
 
 ## Create plot with lines
-with(power_df, plot(DateTime,Global_active_power,type="l", xlab="",ylab="Global Active Power (kilowatts)"))
+with(power_df, plot(datetime,Global_active_power,type="l", xlab="",ylab="Global Active Power (kilowatts)"))
 
 ## Close the device
 dev.off()
